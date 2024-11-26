@@ -1,0 +1,66 @@
+# hook
+ const [step, setStep] = useState(1);
+# Functions
+  const nextStep = () => setStep(step + 1);
+  const prevStep = () => setStep(step - 1);
+# JSX code
+<form>
+{step === 1 && (
+  <>
+ # JSX Coder
+# buttons 
+     <div className="mt-6 flex gap-2 justify-end">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      resetform();
+                    }}
+                    className="px-6 py-2 ml-2 text-custom-bg rounded-lg border-2 border-custom-bg hover:bg-gray-600 hover:text-white focus:ring-4 focus:ring-gray-400 focus:ring-opacity-50"
+                  >
+                    Close
+                  </button>
+                  <button
+                    onClick={nextStep}
+                    className="px-6 py-2 bg-custom-bg text-white rounded-lg hover:bg-gray-600 focus:ring-4 focus:ring-gray-400 focus:ring-opacity-50"
+                  >
+                    Next
+                  </button>
+                </div>
+  </>
+)}
+
+{step === 2 && ( 
+  <>
+  # Part 2 JSX Code
+     <div className="mt-6 flex gap-2 justify-between">
+                  <div>
+                    <button
+                      onClick={prevStep}
+                      className="px-6 py-2 ml-2 text-custom-bg rounded-lg border-2 border-custom-bg hover:bg-gray-600 hover:text-white focus:ring-4 focus:ring-gray-400 focus:ring-opacity-50"
+                    >
+                      Back
+                    </button>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        resetform();
+                      }}
+                      className="px-6 py-2 ml-2 text-custom-bg rounded-lg border-2 border-custom-bg hover:bg-gray-600 hover:text-white focus:ring-4 focus:ring-gray-400 focus:ring-opacity-50"
+                    >
+                      Close
+                    </button>
+                    <button
+                      onClick={nextStep}
+                      className="px-6 py-2 bg-custom-bg text-white rounded-lg hover:bg-gray-600 focus:ring-4 focus:ring-gray-400 focus:ring-opacity-50"
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+  </>
+  )}
+</form>
