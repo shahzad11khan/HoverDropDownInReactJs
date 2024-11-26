@@ -1,12 +1,14 @@
 # Hooks
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemperpage, setitemperpage] = useState(5);
+# Record perpage
+   const [itemsPerPage] = useState(10); 
+
 
 # Function
-  const indexOfLastUser = currentPage * itemperpage;
-  const indexOfFirstUser = indexOfLastUser - itemperpage;
+  const indexOfLastUser = currentPage * itemsPerPage;
+  const indexOfFirstUser = indexOfLastUser - itemsPerPage;
   const currentUsers = filteredData.slice(indexOfFirstUser, indexOfLastUser);
-  const totalPages = Math.ceil(filteredData.length / setitemperpage);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
 # JSX Code
    <div className="flex justify-center mt-4">
