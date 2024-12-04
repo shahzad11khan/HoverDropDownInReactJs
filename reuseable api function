@@ -1,0 +1,38 @@
+    let url = `api_endpoint_name`;
+    let method = "post";
+
+
+  const response = await GlobalService(url, data, method);
+  console.log(response)
+
+
+
+import Axios from "axios";
+import constant from "../constant";
+
+const GlobalService = async (url, data = {}, type = "get") => {
+  return new Promise(async (resolve, reject) => {
+    await Axios({
+      method: type,
+      url: constant.BASE_URL + url,
+      data: type !== "get" ? data : null,
+      headers: {
+        "x-api-key": constant.X_API_KEY,
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+      },
+      params: type === "get" ? data : null,
+    })
+    .then((response) => {
+      resolve(response?.data);
+    })
+    .catch((error) => {
+      resolve({
+        ack: 0,
+        msg: error?.response?.data?.msg,
+        data: null,
+      });
+    });
+  });
+};
+
+export default GlobalService;
